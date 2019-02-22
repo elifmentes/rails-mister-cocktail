@@ -1,0 +1,23 @@
+<h1>Cocktails!</h1>
+
+<%= link_to 'Create new cocktail', new_cocktail_path, class: 'btn btn-secondary' %>
+<table>
+  <tbody>
+    <% @cocktails.each do |cocktail| %>
+      <tr>
+        <td><%= link_to cocktail do %>
+            <%= cocktail.name %>
+          <% end %>
+        </td>
+        <td>
+          <ul><% cocktail.doses.each do |dose| %>
+              <li><%= dose.ingredient.name %> (<%= dose.description %>)</li>
+            <% end %>
+          </ul>
+        </td>
+        <td><%= link_to 'Add ingredient (dose)', new_cocktail_dose_path(cocktail) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

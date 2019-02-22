@@ -1,0 +1,12 @@
+<h1><%= @cocktail.name %></h1>
+<table>
+  <tbody>
+    <% @cocktail.ingredients.each do |ingredient| %>
+      <tr>
+        <td><%= ingredient.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to 'Back', cocktails_path %>
+

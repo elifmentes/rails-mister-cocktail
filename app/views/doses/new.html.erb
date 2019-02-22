@@ -1,0 +1,29 @@
+<h1>Add new dose to <%= @cocktail.name %></h1>
+<%= link_to 'Go back to the cocktail list', cocktails_path %>
+
+<%#= link_to "Go back to #{@cocktail.name}", @cocktail %>
+<%#= link_to "Go back to #{@cocktail.name}", cocktail_path(@cocktail) %>
+
+<%= simple_form_for [@cocktail, @dose] do |f| %>
+<div class="alert alert-danger">
+    <% @dose.errors.full_messages.each do |error| %>
+      <p><%= error %></p>
+    <% end %>
+  </div>
+  <%= f.association :ingredient, collection: Ingredient.all.order(:name) %>
+  <%= f.input :description %>
+  <%#= f.input :ingredient, as: :select, collection: Ingredient.all %>
+  <%= f.button :submit %>
+<% end %>
+
+<!-- <form action="/cocktails/727/doses" method="post">
+  ....
+</form> -->
+
+<!-- WRONG BECAUSE DOSE IS NESTED!
+<%#= simple_form_for @dose do |f| %>
+<%# end %>
+<form action="/doses" method="post">
+  ....
+</form>
+-->

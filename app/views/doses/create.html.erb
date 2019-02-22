@@ -1,0 +1,6 @@
+<h1>Congratulations you created a dose!</h1>
+
+<h4>Cocktail: <%= @dose.cocktail.name %></h4>
+<h4>Ingredient: <%= @dose.ingredient.name %> (<%= @dose.description %>)</h4>
+
+<%= link_to 'Go back to cocktails', cocktails_path %>
